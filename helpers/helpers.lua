@@ -1,5 +1,13 @@
 local helpers = {}
 
+function tablelength(tbl)
+    local idx = 0
+        for _, _ in pairs(tbl) do
+            idx = idx + 1
+        end
+    return idx
+end
+
 function split(inputstr, sep)
     if sep == nil then
        sep = "%s"
@@ -13,6 +21,10 @@ function split(inputstr, sep)
 
 function stoi(instr)
     return tonumber(instr)
+end
+
+function itos(innum)
+    return tostring(innum)
 end
 
 function min(x, y)
