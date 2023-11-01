@@ -1,3 +1,6 @@
+package.path = package.path .. ";../helpers/?.lua"
+require('helpers')
+
 local function split (inputstr, sep)
     if sep == nil then
        sep = "%s"
