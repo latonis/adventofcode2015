@@ -8,6 +8,14 @@ function tablelength(tbl)
     return idx
 end
 
+function stringsep(string, n)
+    local tbl = {}
+    for i = 1, #string, n do
+        table.insert(tbl, string:sub(i, i+n-1))
+    end
+    return tbl
+end
+
 function split(inputstr, sep)
     if sep == nil then
        sep = "%s"
@@ -70,6 +78,14 @@ function Set(str)
     local s = {}
     for char in str:gmatch"." do s[char] = true end
     return s
+end
+
+function tableinstances(tbl)
+    local t = {}
+    for key, val in pairs(tbl) do
+        t[val] = (t[val] or 0) + 1
+    end
+    return t
 end
 
 function map(in_table, f)
