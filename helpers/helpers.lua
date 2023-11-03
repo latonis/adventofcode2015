@@ -103,3 +103,7 @@ end
 function trim(s)
     return (s:gsub("^%s*(.-)%s*$", "%1"))
 end
+
+function replace(s, old, new)
+    return s:gsub(old, new)
+end
