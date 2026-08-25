@@ -24,8 +24,13 @@ defmodule Day01 do
   end
 
   def p2(input) do
-    IO.puts("reached part 2")
+    calc = input |> Enum.reduce({0, 1, 0}, fn element, {acc, pos, found} ->
+      new_acc = acc + if element == "(", do: 1, else: -1
+      new_pos = pos + if new_acc == -1 and found == 0, do: 0, else: 1
+      
+      {new_acc, new_pos, (if found == 0 and new_acc == -1, do: new_pos, else: found)}
+    end)
 
-    input |> IO.puts()
+    IO.puts(elem(calc, 2))
   end
 end  
